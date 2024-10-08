@@ -1,0 +1,71 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f7e7e7;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 400px;
+    text-align: center;
+    position: relative;
+    overflow: hidden; /* Pastikan balon tidak keluar dari kartu */
+}
+
+.card-content h1 {
+    color: #e91e63;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+.card-content p {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #333;
+}
+
+.signature {
+    margin-top: 20px;
+    font-style: italic;
+}
+
+.balloon {
+    position: absolute;
+    width: 40px; /* Ukuran balon */
+    height: 60px; /* Ukuran balon */
+    border-radius: 50% 50% 0 0;
+    animation: float 5s ease-in-out infinite; /* Animasi mengapung */
+    display: none; /* Sembunyikan balon awalnya */
+}
+
+/* Tali balon */
+.balloon::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 40px; /* Tali balon */
+    bottom: -40px; /* Tali balon */
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Animasi balon */
+@keyframes float {
+    0% {
+        transform: translate(0, 0); /* Naik dari bawah */
+    }
+    50% {
+        transform: translate(0, -20px); /* Naik lebih tinggi */
+    }
+    100% {
+        transform: translate(0, 0); /* Kembali ke posisi semula */
+    }
+}
